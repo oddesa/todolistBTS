@@ -63,7 +63,6 @@ class BaseRequest: NSObject {
                 failCompletion(error?.localizedDescription ?? "Error make a connection to server")
             } else {
                 if let response = response {
-                    print("ini post response ------------")
                     print(response)
                     successCompletion(response)
                 }

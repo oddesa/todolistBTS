@@ -24,18 +24,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         let action = UIAlertAction(title: "Tambahkan", style: .default) { [self] (_) in
             if let itemBaru = textField.text {
                 if itemBaru != "" {
-                    print("ini item baru \(itemBaru) -----------")
-                    print ("masuk disini")
                     addNewChecklist(name: itemBaru) { checklist in
-                        print(checklist.checklistName)
-//                        fetchChecklist { itemsBaru in
-//                            checklistItem = itemsBaru
-//                            DispatchQueue.main.async {
-//                                self.tableViewOtl.reloadData()
-//                            }
-//                        } failCompletion: { error in
-//                            print(error)
-//                        }
+                        fetchChecklist { itemsBaru in
+                            checklistItem = itemsBaru
+                            DispatchQueue.main.async {
+                                self.tableViewOtl.reloadData()
+                            }
+                        } failCompletion: { error in
+                            print(error)
+                        }
 
                     } failCompletion: { Error in
                         print(Error)
